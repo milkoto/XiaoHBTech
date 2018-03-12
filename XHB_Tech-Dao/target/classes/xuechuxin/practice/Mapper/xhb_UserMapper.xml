@@ -33,8 +33,12 @@
 	<!-- 创建用户-->
 	<insert id = "CreateUser" parameterType ="xuechuxin.practice.pojo.xhb_User"  >
 		Insert Into xhb_user 		
-		(user_id,user_name,password,phone,cash_asset,score_asset,coin_asset,headurl) values
-		(#{user_id},#{user_name},#{password},#{phone},#{cash_asset},#{score_asset},#{coin_asset},#{headurl})
+		(user_id,user_name,password,phone,cash_asset,score_asset,coin_asset,headurl,
+		real_name,has_userauthfreeze,has_setloginpwd,has_setwithdrawpwd) 
+		values
+		(#{user_id},#{user_name},#{password},#{phone},#{cash_asset},#{score_asset},#{coin_asset},
+		#{headurl},#{real_name},#{has_userauthfreeze},
+		#{has_setloginpwd},#{has_setwithdrawpwd})
 	</insert>
 	
 	

@@ -10,15 +10,15 @@ public class xhb_User implements Serializable{
 	private String password;
 	private String headurl;
 	private String phone;
-	private Long cash_asset;
-	private Long score_asset;
-	private Long coin_asset;
+	private long cash_asset;
+	private long score_asset;
+	private long coin_asset;
 	private String real_name;
 	private String bankcardno;
 	private String bankcardname;
-	private boolean has_userauthfreeze;
-	private boolean has_setloginpwd;
-	private boolean has_setwithdrawpwd;
+	private int has_userauthfreeze;
+	private int has_setloginpwd;
+	private int has_setwithdrawpwd;
 	private MultipartFile image;
 	public String getUser_id() {
 		return user_id;
@@ -53,20 +53,20 @@ public class xhb_User implements Serializable{
 	public Long getCash_asset() {
 		return cash_asset;
 	}
-	public void setCash_asset(Long cash_asset) {
-		this.cash_asset = cash_asset;
+	public void setCash_asset(long i) {
+		this.cash_asset = i;
 	}
 	public Long getScore_asset() {
 		return score_asset;
 	}
-	public void setScore_asset(Long score_asset) {
-		this.score_asset = score_asset;
+	public void setScore_asset(long i) {
+		this.score_asset = i;
 	}
 	public Long getCoin_asset() {
 		return coin_asset;
 	}
-	public void setCoin_asset(Long coin_asset) {
-		this.coin_asset = coin_asset;
+	public void setCoin_asset(long i) {
+		this.coin_asset = i;
 	}
 	public String getReal_name() {
 		return real_name;
@@ -86,23 +86,23 @@ public class xhb_User implements Serializable{
 	public void setBankcardname(String bankcardname) {
 		this.bankcardname = bankcardname;
 	}
-	public boolean isHas_userauthfreeze() {
+	public int isHas_userauthfreeze() {
 		return has_userauthfreeze;
 	}
-	public void setHas_userauthfreeze(boolean has_userauthfreeze) {
-		this.has_userauthfreeze = has_userauthfreeze;
+	public void setHas_userauthfreeze(int i) {
+		this.has_userauthfreeze = i;
 	}
-	public boolean isHas_setloginpwd() {
+	public int isHas_setloginpwd() {
 		return has_setloginpwd;
 	}
-	public void setHas_setloginpwd(boolean has_setloginpwd) {
-		this.has_setloginpwd = has_setloginpwd;
+	public void setHas_setloginpwd(int i) {
+		this.has_setloginpwd = i;
 	}
-	public boolean isHas_setwithdrawpwd() {
+	public int isHas_setwithdrawpwd() {
 		return has_setwithdrawpwd;
 	}
-	public void setHas_setwithdrawpwd(boolean has_setwithdrawpwd) {
-		this.has_setwithdrawpwd = has_setwithdrawpwd;
+	public void setHas_setwithdrawpwd(int i) {
+		this.has_setwithdrawpwd = i;
 	}
 	
 	

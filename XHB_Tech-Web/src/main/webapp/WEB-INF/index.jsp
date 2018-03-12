@@ -16,17 +16,17 @@
 		<c:if test="${user.user_id !=null}">		
            <div>
            		你好,你可以
-               <a href="http://localhost:8080/api/customer/user">查看我的信息</a>       
+               <a href="http://localhost/api/customer/user">查看我的信息</a>       
            </div>	        		   			
 		</c:if>
 		
 		
 		<c:if test="${user.user_id ==null}" >
 				<div>					
-					<a href="http://localhost:8080/login" >请登陆</a>
+					<a href="http://localhost/login" >请登陆</a>
 				</div>
 				<div>					
-					<a href="http://localhost:8080/regist" >没用账号，立即注册</a>
+					<a href="http://localhost/regist" >没有账号，立即注册</a>
 				</div>
 		</c:if>
 		

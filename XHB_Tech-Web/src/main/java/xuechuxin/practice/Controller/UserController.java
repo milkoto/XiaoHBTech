@@ -49,7 +49,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(value="/api/customer/user", method=RequestMethod.POST)
-	public String Regist(xhb_User user,HttpServletRequest request,String captcha) throws Exception {
+	public String Regist(xhb_User user,HttpServletRequest request,String captcha)  {
 		//取出页面的验证码
 		HttpSession session = request.getSession();
 		String checked_code = (String)session.getAttribute("captcha");
@@ -74,21 +74,33 @@ public class UserController {
 				String originalFilename = user.getImage().getOriginalFilename();
 				String extName = originalFilename.substring(originalFilename.indexOf("."));
 				//设置上传文件夹的地址
-				uploadFile.transferTo(new File("G:/java/XHB_Tech/XHB_Tech-Web/src/main/webapp/img/"+picName+extName));
-				//得到文件的相对地址和文件名
-				String url = "/img/"+picName+extName;
-				user.setHeadurl(url);
-				xhb_Result result = userService.Adduser(user);
-				//注册成功将user信息写入session并且把密码置为空保证用户安全			
-				user=(xhb_User) result.getData();		
-				user.setPassword("");
-				session.setAttribute("user", user);
+				try {
+					uploadFile.transferTo(new File("G:/java/XHB_Tech/XHB_Tech-Web/src/main/webapp/img/"+picName+extName));
+					//得到文件的相对地址和文件名
+					String url = "/img/"+picName+extName;
+					user.setHeadurl(url);
+					//注册用户
+					xhb_Result result = userService.Adduser(user);
+					//注册成功将user信息写入session并且把密码置为空保证用户安全			
+					user=(xhb_User) result.getData();		
+					user.setPassword("");
+					session.setAttribute("user", user);
+					
+					return "index";
+				}  catch (Exception e) {
+					// 上传失败
+					e.printStackTrace();
+					xhb_Result result = new xhb_Result(331, "上传头像失败", null);
+					//重新注册
+					request.setAttribute("result", result);
+					return "regist";
+					
+				}
 				
-				return "index";
 			}
 			else {
 				//没有上传图片。返回注册失败
-				xhb_Result result = new xhb_Result(404, "图片不能为空", null);
+				xhb_Result result = new xhb_Result(331, "上传头像不能为空", null);
 				//重新注册
 				request.setAttribute("result", result);
 				return "regist";

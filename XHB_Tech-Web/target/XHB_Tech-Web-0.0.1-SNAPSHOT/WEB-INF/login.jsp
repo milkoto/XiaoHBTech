@@ -24,7 +24,7 @@
 		</c:if>
 	</div>
 	<div>
-		 <a href="http://localhost:8080/regist">没有账号，前去注册</a>  
+		 <a href="http://localhost/regist">没有账号，前去注册</a>  
 	</div>
 	<div>	
 		<form id="loginform" action="${pageContext.request.contextPath }/api/customer/token" method="post">			

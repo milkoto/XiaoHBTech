@@ -31,6 +31,9 @@
 					required:true,
 					phone:true
 				}
+				real_name:{
+					required:true,
+				}
 			},
 			messages:{
 				username:{
@@ -45,6 +48,10 @@
 					required:"确认密码不能为空!",
 					equalTo:"两次输入密码不一致!"
 				}
+				real_name:{
+					required:"真实姓名不能为空!",					
+				}
+				
 			}
 		});
 	});
@@ -59,7 +66,7 @@
 		</c:if>
 	</div>
 	<div>
-		 <a href="http://localhost:8080/login">我有账号，立即登陆</a>  
+		 <a href="http://localhost/login">我有账号，立即登陆</a>  
 	</div>
 	<div>
 		<form action="${requestContext.request.contextPath}/api/customer/user" id="checkForm" 
@@ -70,6 +77,7 @@
 			再次输入密码:<input type="password" name="repassword"/><br />
 			手机号码:   <input type="text" name="phone" onblur="checkphone(this.value)"/>
 			<span id="phoneMsg" ></span><br/>
+			真实姓名: <input type="text" name="real_name" />
 			请上传头像:
              <input type="file" name="image"></br>
 			验证码:

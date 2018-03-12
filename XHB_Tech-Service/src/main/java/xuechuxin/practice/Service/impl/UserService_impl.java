@@ -100,9 +100,19 @@ public class UserService_impl implements UserService{
 		String user_id = UUID.randomUUID().toString();
 		System.out.println(user_id);
 		user.setUser_id(user_id);
+		//补全信息
+		user.setCash_asset(0);
+		user.setCoin_asset(0);
+		user.setScore_asset(0);
+		//0为未设置 false  1为已设置 true
+		user.setHas_setloginpwd(0);
+		user.setHas_setwithdrawpwd(0);
+		user.setHas_userauthfreeze(0);
 		//加密密码
 		String MD5Password = MD5Util.MD5(user.getPassword());
 		user.setPassword(MD5Password);
+		//补全信息
+		
 		System.out.println(user.getHeadurl());
 		userMapper.CreateUser(user);
 		return xhb_Result.build(200, "sucess",user);
