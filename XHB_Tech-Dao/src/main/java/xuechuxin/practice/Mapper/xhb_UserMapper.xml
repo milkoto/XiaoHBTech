@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper	 namespace ="xuechuxin.practice.Mapper.xhb_UserMapper">
+	<!-- 根据用户id查询 用户信息-->
+	<!--  <resultMap type= "xuechuxin.practice.pojo.xhb_User" id="user">	
+	</resultMap>-->
+	<select id="FindUserById" parameterType="string" 
+	resultType="xuechuxin.practice.pojo.xhb_User">
+		select * from xhb_user where user_id = #{id}
+	</select>
+	<!-- 根据用户名查询 -->
+	<select id="FindUserByUsername" parameterType="string"
+		resultType="xuechuxin.practice.pojo.xhb_User">
+		select * from xhb_user where user_name = #{user_name}
+	</select>
+	
+	<!-- 根据用户名查询 -->
+	<select id="FindUserByPhone" parameterType="string"
+		resultType="xuechuxin.practice.pojo.xhb_User">
+		select * from xhb_user where phone = #{phone}
+	</select>
+		
+	<!-- 根据用户账号密码查询用户 
+	<select id="Userlogin" parameterType="xuechuxin.practice.pojo.xhb_User"
+		resultType="xuechuxin.practice.pojo.xhb_User">
+		select user_id from xhb_user 
+		where user_name = #{user.user_name} 
+		and password = #{user.password}		
+	</select>-->
+	
+	
+	<!-- 创建用户-->
+	<insert id = "CreateUser" parameterType ="xuechuxin.practice.pojo.xhb_User"  >
+		Insert Into xhb_user 		
+		(user_id,user_name,password,phone,cash_asset,score_asset,coin_asset,headurl) values
+		(#{user_id},#{user_name},#{password},#{phone},#{cash_asset},#{score_asset},#{coin_asset},#{headurl})
+	</insert>
+	
+	
+	
+</mapper>
